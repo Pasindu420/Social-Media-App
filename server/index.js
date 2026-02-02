@@ -13,10 +13,14 @@ app.use(cors());
 
 app.use("/posts", postRoutes);
 app.use("/user", authRoutes);
-let url = "mongodb+srv://mernApp:mernApp123@cluster0.uprhtzl.mongodb.net/?retryWrites=true&w=majority";
-const port = process.env.port || 5000;
-mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true})
-    .then(()=>{ app.listen(port , ()=>console.log("Server is running")) })
-    .catch((err)=>{console.log(err.message)});
+// Local MongoDB URL
+let url = "mongodb://127.0.0.1:27017/socialmedia";
+
+// Use PORT (uppercase) normally
+const port = process.env.PORT || 5000;
+
+mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => { app.listen(port, () => console.log("Server is running")) })
+  .catch((err) => { console.log(err.message) });
 
 // mongoose.set("useFindAndModify", false);    
