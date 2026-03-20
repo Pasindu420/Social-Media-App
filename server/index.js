@@ -14,7 +14,7 @@ app.use(cors());
 app.use("/posts", postRoutes);
 app.use("/user", authRoutes);
 // Local MongoDB URL
-let url = "mongodb://127.0.0.1:27017/socialmedia";
+const url = "mongodb://127.0.0.1:27017/socialmedia";
 
 // Use PORT (uppercase) normally
 const port = process.env.PORT || 5000;
